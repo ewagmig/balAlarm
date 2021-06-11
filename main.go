@@ -2,16 +2,18 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/blinkbean/dingtalk"
-	"github.com/robfig/cron/v3"
 	"io/ioutil"
 	"net/http"
 )
 
 func main() {
-	c := cron.New()
-	c.AddFunc("CRON_TZ=Asia/Shanghai 0 23,5,11,17 * * *", SendNotification)
-	c.Start()
+	//c := cron.New()
+	//c.AddFunc("CRON_TZ=Asia/Shanghai 0 23,5,11,17 * * *", SendNotification)
+	//c.Start()
+	fmt.Println("Begin to send notification to DingDing group!")
+	SendNotification()
 }
 
 func SendNotification() {
