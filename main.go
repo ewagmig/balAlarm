@@ -6,6 +6,7 @@ import (
 	"github.com/blinkbean/dingtalk"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 func main() {
@@ -21,6 +22,18 @@ func SendNotification() {
 	accountHT, err := GetBalanceByAPI()
 	if err != nil {
 		return
+	}
+	amountNum := accountHT[:len(accountHT)-2]
+	amount, err := strconv.Atoi(amountNum)
+	if err != nil {
+		return
+	}
+	if amount <= 2000{
+		content := "Balance Lower than 2000HT, Please refund immediately!"
+		//@周李
+		clia := dingtalk.InitDingTalk(dingToken, "-Alarm")
+		mobiles := []string{"13488858435"}
+		clia.SendTextMessage(content, dingtalk.WithAtMobiles(mobiles))
 	}
 
 	cli := dingtalk.InitDingTalk(dingToken, "+Balance")
