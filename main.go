@@ -18,7 +18,7 @@ func main() {
 }
 
 func SendNotification() {
-	var dingToken = []string{"3b2cc7ddfb07fe4969f0d6eb1cb2c3e45d1289b05f5379d0bd0f4a41486f0c8d"}
+	var dingToken = []string{"e742a486c292a0e1b82bf6a3e975e832f38ee47210c1dee81727a177e7dcc177"}
 	accountHT, err := GetBalanceByAPI()
 	if err != nil {
 		return
@@ -29,7 +29,7 @@ func SendNotification() {
 		return
 	}
 	if amount <= 2000{
-		content := "Balance Lower than 2000HT, Please refund immediately!"
+		content := "Balance is lower than 2000HT, Please refund immediately!!!"
 		//@周李
 		clia := dingtalk.InitDingTalk(dingToken, "-Alarm")
 		mobiles := []string{"13488858435"}
