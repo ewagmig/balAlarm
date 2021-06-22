@@ -32,7 +32,7 @@ func SendNotification() {
 		content := "Balance is lower than 2000HT, Please refund immediately!!!"
 		//@周李
 		clia := dingtalk.InitDingTalk(dingToken, "-Alarm")
-		mobiles := []string{"13488858435"}
+		mobiles := []string{"13488858435","13378104565"}
 		clia.SendTextMessage(content, dingtalk.WithAtMobiles(mobiles))
 	}
 
